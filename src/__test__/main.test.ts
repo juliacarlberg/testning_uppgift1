@@ -38,17 +38,22 @@ describe("createNewTodo()", ()=>{
 });
 
 describe("createHtml", ()=>{
-    test("should empty ul", ()=>{
+    beforeEach(()=>{
+        jest.resetModules();
+        jest.resetAllMocks();
+    });
+    test("should create html for li-element and add to ul", ()=>{
         //arrange
         let newTodo: Todo[]= [new Todo("text", false)];
         document.body.innerHTML= `<ul id="todos" class="todo"></ul>`;
+        let ul= document.getElementById("todos") as HTMLUListElement;
 
         //act
         functions.createHtml(newTodo);
 
         //assert
-        expect(document.getElementById("todos")?.innerHTML).toBe("");
-    })
+        expect(ul.innerHTML).toBe(`<li class=\"todo_text"\>get a grip</li>`)
+    });
 });
 
 describe("toggleTodo", ()=>{

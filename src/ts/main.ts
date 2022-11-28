@@ -58,7 +58,7 @@ export function createHtml(todos: Todo[]) {
 }
 
 export function toggleTodo(todo: Todo) {
-  exports.changeTodo(todo);
+  changeTodo(todo);
   exports.createHtml(todos);
 }
 
@@ -77,8 +77,8 @@ export function displayError(error: string, show: boolean) {
 }
 
 export function clearTodos(todos: Todo[]) {
-  exports.removeAllTodos(todos);
-  exports.createHtml(todos);
+  removeAllTodos(todos);
+  createHtml(todos);
 }
 
 //exports.createHtml(todos);
